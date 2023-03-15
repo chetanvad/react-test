@@ -33,3 +33,7 @@
 .sidebar-link {
     border-left-width: 2px;
 }
+
+input[type="search"]:hover {
+    cursor: pointer;
+}
