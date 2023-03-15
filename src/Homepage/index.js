@@ -1,16 +1,20 @@
+// Library Imports
 import React, { useState } from "react";
-import Header from "../components/Header";
 import "rc-tooltip/assets/bootstrap.css";
 import Tooltip from "rc-tooltip";
-import { userList, menuList, dropdownList } from "../constants";
-import "./style.css";
 import { RxCopy } from "react-icons/rx";
 import DataTable from "react-data-table-component";
 import { BsListTask } from "react-icons/bs";
 import { BsArrowUpShort, BsCheck2 } from "react-icons/bs";
+
+// Import custom components and Files
 import Pagination from "../components/Pagination";
+import Header from "../components/Header";
 import DetailsDrawer from "../components/DetailsDrawer";
 import Cards from "../components/Cards";
+import { userList, menuList, dropdownList } from "../constants";
+// Import styling
+import "./style.css";
 
 const customStyles = {
   rows: {
@@ -32,17 +36,21 @@ const customStyles = {
     style: {
       padding: "25px 20px !important", // override the cell padding for data cells
       fontSize: "13px",
+      fontFamily: "Rubik, sans-serif",
     },
   },
 };
 
 function HomePage() {
   const [viewType, setViewType] = useState("card");
+  const [userListData, setUserListData] = useState(userList);
   const [open, setOpen] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [drop, setDrop] = useState(false);
   const [openDrop, setOpenDrop] = useState(false);
   const [val, setVal] = useState("All");
+  const [mainType, setMainType] = useState("Computers");
+  const [searchVal, setSearchVal] = useState("");
 
   const handleView = (type) => {
     type === "card" ? setViewType("card") : setViewType("grid");
@@ -57,6 +65,24 @@ function HomePage() {
   const handleCloseModel = () => {
     setShowModal(false);
   };
+
+  const handleSearchChange = (value) => {
+    setSearchVal(value);
+    if (value.trim()) {
+      const searchValue = userList.filter((ele) => {
+        return (
+          ele?.name.toLowerCase().includes(value.toLowerCase()) ||
+          ele?.dns.toLowerCase().includes(value.toLowerCase()) ||
+          ele?.des.toLowerCase().includes(value.toLowerCase())
+        );
+      });
+      console.log("searchValue", searchValue, value);
+      setUserListData(searchValue);
+    } else {
+      setUserListData(userList);
+    }
+  };
+
   const columns = [
     {
       name: "Friendly Name",
@@ -114,7 +140,13 @@ function HomePage() {
                   drop ? setDrop(false) : setDrop(true);
                 }}
               >
-                <p className={`${drop ? '!text-blue-100':''} text-cgray-300 font-medium text-1xl `}>Computers</p>
+                <p
+                  className={`${
+                    drop ? "!text-blue-100" : ""
+                  } text-cgray-300 font-medium text-1xl `}
+                >
+                  {mainType}
+                </p>
                 <p className="bg-blue-100 px-2 rounded-lg self-center ml-1.5 mr-3 font-medium text-white">
                   3
                 </p>
@@ -165,15 +197,18 @@ function HomePage() {
                     return (
                       <React.Fragment key={index}>
                         <div
-                          className="flex py-2 hover:border-l-2 hover:border-blue-100"
-                          onClick={() => setDrop(false)}
+                          className="flex py-2 hover:border-l-2 hover:border-blue-100 sidebar-link"
+                          onClick={() => {
+                            setMainType(res?.name);
+                            setDrop(false);
+                          }}
                         >
                           <p className="self-center ml-3">
                             <img src={res?.img} alt="img"></img>
                           </p>
                           <p
                             className={`${
-                              res.color === "blue" ? "text-blue-100" : ""
+                              res?.name === mainType ? "text-blue-100" : ""
                             } self-center text-base ml-3 hover:text-blue-100 cursor-pointer`}
                           >
                             {res?.name}
@@ -192,9 +227,7 @@ function HomePage() {
           <div className="md:grid md:grid-cols-12 py-5 gap-6">
             <div className={`${open ? "h-fit" : "h-16"}  md:col-span-3`}>
               <div className="rounded-lg overflow-hidden">
-                <div
-                  className="flex justify-between py-4 px-19px bg-white shadow-1xl"
-                >
+                <div className="flex justify-between py-4 px-19px bg-white shadow-1xl">
                   <div className="self-center">
                     <p className="text-black  font-normal text-lg">
                       Access Type
@@ -220,7 +253,7 @@ function HomePage() {
                           <input
                             id="search"
                             name="search"
-                            className="block w-full py-2 pl-2 text-black placeholder-text-black pr-3 shadow-3xl leading-5  border border-gray-300 rounded-md focus:outline-none focus:ring-blue-100 focus:border-blue-100 sm:text-sm cursor-pointer"
+                            className="block w-full py-2 pl-2 font-rubik text-black placeholder-text-black pr-3 shadow-3xl leading-5  border border-gray-300 rounded-md focus:outline-none focus:ring-blue-100 focus:border-blue-100 sm:text-sm cursor-pointer"
                             placeholder="Search & Filter"
                             type="text"
                             value={val}
@@ -252,7 +285,7 @@ function HomePage() {
                           <div
                             onClick={() => {
                               setVal(ele?.value);
-                              setOpenDrop(false)
+                              setOpenDrop(false);
                             }}
                             className={`flex my-1 justify-between rounded-md cursor-pointer ${
                               ele?.label === val ? "bg-[#EEF0F4]" : ""
@@ -284,8 +317,11 @@ function HomePage() {
                     ></img>
                   </div>
                   <input
-                    id="search"
-                    name="search"
+                    name="searchUser"
+                    value={searchVal}
+                    onChange={(e) => {
+                      handleSearchChange(e.target.value);
+                    }}
                     className="block w-full py-2 pl-10 pr-3 shadow-3xl leading-5 placeholder-gray-400 border border-gray-300 rounded-md focus:outline-none focus:ring-white focus:placeholder-gray-500 focus:text-gray-900 sm:text-sm"
                     placeholder="Search & Filter"
                     type="search"
@@ -295,7 +331,7 @@ function HomePage() {
 
               {viewType === "card" && (
                 <div className="grid grid-cols-12 z-50 gap-6">
-                  {userList.map((user, index) => {
+                  {userListData.map((user, index) => {
                     return (
                       <Cards
                         user={user}
@@ -310,7 +346,7 @@ function HomePage() {
                 <div className="mt-5">
                   <DataTable
                     columns={columns}
-                    data={userList}
+                    data={userListData}
                     sortIcon={<BsArrowUpShort />}
                     customStyles={customStyles}
                   />

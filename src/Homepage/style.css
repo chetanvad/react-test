@@ -29,3 +29,7 @@
 .bg {
     background-color: rgba(48, 127, 193, 0.07);
 }
+
+.sidebar-link {
+    border-left-width: 2px;
+}
