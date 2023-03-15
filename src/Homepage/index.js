@@ -207,7 +207,7 @@ function HomePage() {
                     return (
                       <React.Fragment key={index}>
                         <div
-                          className={`flex py-2 hover:border-l-2 hover:border-blue-100 hover:bg-[#307fc112] sidebar-link ${res?.name === mainType ? 'bg-[#307fc112] border-blue-100': ''}`}
+                          className={`flex py-2 hover:border-l-2 hover:border-blue-100 cursor-pointer hover:bg-[#307fc112] sidebar-link ${res?.name === mainType ? 'bg-[#307fc112] border-blue-100': ''} hover:text-blue-100`}
                           onClick={() => {
                             setMainType(res?.name);
                             setDrop(false);
@@ -219,7 +219,7 @@ function HomePage() {
                           <p
                             className={`${
                               res?.name === mainType ? "text-blue-100" : ""
-                            } self-center text-base ml-3 hover:text-blue-100 cursor-pointer`}
+                            } self-center text-base ml-3 `}
                           >
                             {res?.name}
                           </p>

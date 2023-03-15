@@ -4,15 +4,15 @@ function DetailsDrawer(props) {
   const { handleCloseModel } = props;
   return (
     <>
-      <div className="fixed inset-0 z-10">
+      <div className="fixed inset-0 z-10 backdrop-blur-[1px]">
         <div
-          className="fixed inset-0 w-full h-full bg-black opacity-40 backdrop-blur-[1px]"
+          className="fixed inset-0 w-full h-full bg-black opacity-40"
           onClick={() => handleCloseModel()}
         ></div>
         <div className="flex  min-h-screen py-5">
           <div className="relative h-[100vh] w-full max-w-2xl ml-auto bg-white overflow-hidden rounded-tl-2xl shadow-lg">
             <div className="gradiant-img-bg p-8">
-              <div className="flex justify-between">
+              <div className="flex justify-between items-center">
                 <div>
                   <p className="text-white text-22 font-medium">
                     Computers Item Friendly Name
@@ -57,7 +57,7 @@ function DetailsDrawer(props) {
             </div>
             <div className="py-9 px-8">
               <button
-                className="bg-blue-100 py-3 px-6 text-white text-base font-normal rounded-md hover:bg-blue-200"
+                className="bg-blue-100 py-3 px-6 text-white text-base font-normal rounded-md hover:bg-blue-200 hover:shadow-btn-blue transition ease-in-out delay-250"
                 onClick={() => {
                   handleCloseModel();
                 }}

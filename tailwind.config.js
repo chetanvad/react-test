@@ -44,7 +44,8 @@ module.exports = {
         "1xl": "0 1px 2px 0 rgba(0, 0, 0, 0.1)",
         "4xl": "0 4px 16px 0 rgba(0, 0, 0, 0.05)",
         "5xl": "0 2px 16px 0 rgba(0, 0, 0, 0.11);",
-        "6xl": '0 5px 5px -2px rgba(1, 174, 143, 0.55)'
+        "6xl": '0 5px 5px -2px rgba(1, 174, 143, 0.55)',
+        'btn-blue': '0 5px 5px -2px rgba(48, 127, 193, 0.55)'
       },
       borderRadius: {
         5: "5px",
