@@ -47,7 +47,7 @@ function Cards(props) {
             </div>
             <div className="mx-4 pb-6">
               <button
-                className="bg-cgreen-100 w-full text-white font-normal text-sm py-2 rounded hover:bg-cgreen-200 hover:shadow-6xl"
+                className="bg-cgreen-100 w-full text-white font-normal text-sm py-2 rounded hover:bg-cgreen-200 hover:shadow-6xl transition ease-in-out delay-250"
                 onClick={() => handleOpenDetails()}
               >
                 Details

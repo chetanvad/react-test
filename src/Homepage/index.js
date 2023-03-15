@@ -125,7 +125,7 @@ function HomePage() {
       cell: (param) => {
         return (
           <button
-            className="bg-cgreen-100 py-2 px-3 text-sm text-white rounded min-w-[69px] hover:bg-cgreen-200 hover:shadow-6xl ml-auto"
+            className="bg-cgreen-100 py-2 px-3 text-sm text-white rounded min-w-[69px] hover:bg-cgreen-200 hover:shadow-6xl ml-auto transition ease-in-out delay-250"
             onClick={() => {
               setShowModal(true);
             }}
@@ -255,11 +255,10 @@ function HomePage() {
                     <hr />
                     <div className=" justify-between bg-cgray-150 py-[30px] px-19px">
                       <div className="self-center">
-                        <label className="text-cgray-500 font-normal text-xsm ml-2">
+                        <label className="text-cgray-500 font-medium text-xsm ml-2">
                           SELECT ACCESS TYPE
                         </label>
-                        <br />
-                        <div className="relative text-sky-100 focus-within:text-gray-400 md:col-span-4 md:mt-0 mt-4">
+                        <div className="relative text-sky-100 focus-within:text-gray-400 md:col-span-4 mt-2.5">
                           <input
                             id="search"
                             name="search"
@@ -305,7 +304,7 @@ function HomePage() {
                               {ele?.label}
                             </p>
                             {ele?.label === val && (
-                              <BsCheck2 className="self-center mr-2" />
+                              <BsCheck2 className="self-center mr-2 opacity-50" />
                             )}
                           </div>
                         </React.Fragment>
