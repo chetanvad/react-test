@@ -88,31 +88,26 @@ function HomePage() {
       name: "Friendly Name",
       selector: (row) => row?.name,
       sortable: true,
-      minWidth: '20%',
-      style: {
-        outerWidth: '20%',
-      },
+      id: "friendlyname",
+      minWidth: '22%',
     },
     {
       name: "DNS Name",
       selector: (row) => row?.dns,
       sortable: true,
-      minWidth: '20%',
-      style: {
-        outerWidth: '20%',
-      },
+      id: "dnsname",
+      minWidth: '22%',
     },
     {
       name: "Environment",
       selector: (row) => <p>{row?.des}</p>,
       sortable: true,
-      minWidth: '20%',
-      style: {
-        outerWidth: '20%',
-      },
+      id: "environment",
+      minWidth: '22%',
     },
     {
       name: "End Date",
+      minWidth: '22%',
       selector: (row) => (
         <p>
           {row?.date}
@@ -121,21 +116,16 @@ function HomePage() {
         </p>
       ),
       sortable: true,
-      minWidth: '20%',
-      style: {
-        outerWidth: '20%',
-      },
+      id: "enddate",
     },
     {
       name: "",
-      minWidth: '20%',
-      style: {
-        outerWidth: '20%',
-      },
+      id: "action",
+      minWidth: '12%',
       cell: (param) => {
         return (
           <button
-            className="bg-cgreen-100 py-2 px-3 text-sm text-white rounded min-w-[69px] hover:bg-cgreen-200 hover:shadow-6xl"
+            className="bg-cgreen-100 py-2 px-3 text-sm text-white rounded min-w-[69px] hover:bg-cgreen-200 hover:shadow-6xl ml-auto"
             onClick={() => {
               setShowModal(true);
             }}
