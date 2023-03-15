@@ -26,6 +26,7 @@ const customStyles = {
     style: {
       color: "#7d7c7c", // override the cell padding for head cells
       height: "62px",
+      backgroundColor: '#fbfbfd',
       fontSize: "13px",
       "&:hover": {
         color: "#307fc1 !important",
@@ -76,7 +77,6 @@ function HomePage() {
           ele?.des.toLowerCase().includes(value.toLowerCase())
         );
       });
-      console.log("searchValue", searchValue, value);
       setUserListData(searchValue);
     } else {
       setUserListData(userList);
@@ -115,7 +115,7 @@ function HomePage() {
       cell: (param) => {
         return (
           <button
-            className="bg-cgreen-100 py-2 px-5 text-white rounded"
+            className="bg-cgreen-100 py-2 px-5 text-white rounded min-w-[69px]"
             onClick={() => {
               setShowModal(true);
             }}

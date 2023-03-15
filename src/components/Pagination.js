@@ -16,35 +16,23 @@ function Pagination() {
             1
           </p>
         </div>
-        <div className="sm:flex h-10 bg-white hover:bg-blue-100 hidden cursor-pointer">
-          <p className="self-center px-4 text-sm text-cgray-700 font-normal hover:text-white">
-            2
-          </p>
+        <div className="sm:flex h-10 bg-white hover:bg-blue-100 hidden cursor-pointer text-cgray-700 hover:text-white">
+          <p className="self-center px-4 text-sm   font-normal  ">2</p>
         </div>
-        <div className="ml-1 sm:flex h-10 bg-white hover:bg-blue-100 hidden cursor-pointer">
-          <p className="self-center px-4 text-sm text-cgray-700 font-normal hover:text-white">
-            3
-          </p>
+        <div className="ml-1 sm:flex h-10 bg-white hover:bg-blue-100 hidden cursor-pointer text-cgray-700 hover:text-white">
+          <p className="self-center px-4 text-sm   font-normal  ">3</p>
         </div>
-        <div className="ml-1 sm:flex h-10 bg-white hover:bg-blue-100 hidden cursor-pointer">
-          <p className="self-center px-4 text-sm text-cgray-700 font-normal hover:text-white">
-            4
-          </p>
+        <div className="ml-1 sm:flex h-10 bg-white hover:bg-blue-100 hidden cursor-pointer text-cgray-700 hover:text-white">
+          <p className="self-center px-4 text-sm   font-normal  ">4</p>
         </div>
-        <div className="ml-1 sm:flex h-10 bg-white hover:bg-blue-100 hidden cursor-pointer">
-          <p className="self-center px-4 text-sm text-cgray-700 font-normal hover:text-white">
-            -
-          </p>
+        <div className="ml-1 sm:flex h-10 bg-white hover:bg-blue-100 hidden cursor-pointer text-cgray-700 hover:text-white">
+          <p className="self-center px-4 text-sm   font-normal  ">-</p>
         </div>
-        <div className="ml-1 sm:flex h-10 bg-white hidden hover:bg-blue-100 cursor-pointer">
-          <p className="self-center px-4 text-sm text-cgray-700 font-normal hover:text-white">
-            186
-          </p>
+        <div className="ml-1 sm:flex h-10 bg-white hidden hover:bg-blue-100 cursor-pointer text-cgray-700 hover:text-white">
+          <p className="self-center px-4 text-sm   font-normal  ">186</p>
         </div>
-        <div className="ml-1 sm:flex h-10 bg-white hidden hover:bg-blue-100 cursor-pointer">
-          <p className="self-center px-4 text-sm text-cgray-700 font-normal hover:text-white">
-            187
-          </p>
+        <div className="ml-1 sm:flex h-10 bg-white hidden hover:bg-blue-100 cursor-pointer text-cgray-700 hover:text-white">
+          <p className="self-center px-4 text-sm   font-normal  ">187</p>
         </div>
         <div className="self-center px-4 ml-1 flex h-10 hover:bg-blue-100 bg-white hover:text-white cursor-pointer">
           <img
