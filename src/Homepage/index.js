@@ -88,16 +88,28 @@ function HomePage() {
       name: "Friendly Name",
       selector: (row) => row?.name,
       sortable: true,
+      minWidth: '20%',
+      style: {
+        outerWidth: '20%',
+      },
     },
     {
       name: "DNS Name",
       selector: (row) => row?.dns,
       sortable: true,
+      minWidth: '20%',
+      style: {
+        outerWidth: '20%',
+      },
     },
     {
       name: "Environment",
       selector: (row) => <p>{row?.des}</p>,
       sortable: true,
+      minWidth: '20%',
+      style: {
+        outerWidth: '20%',
+      },
     },
     {
       name: "End Date",
@@ -109,13 +121,21 @@ function HomePage() {
         </p>
       ),
       sortable: true,
+      minWidth: '20%',
+      style: {
+        outerWidth: '20%',
+      },
     },
     {
       name: "",
+      minWidth: '20%',
+      style: {
+        outerWidth: '20%',
+      },
       cell: (param) => {
         return (
           <button
-            className="bg-cgreen-100 py-2 px-3 text-sm text-white rounded min-w-[69px]"
+            className="bg-cgreen-100 py-2 px-3 text-sm text-white rounded min-w-[69px] hover:bg-cgreen-200 hover:shadow-6xl"
             onClick={() => {
               setShowModal(true);
             }}
@@ -197,7 +217,7 @@ function HomePage() {
                     return (
                       <React.Fragment key={index}>
                         <div
-                          className="flex py-2 hover:border-l-2 hover:border-blue-100 sidebar-link"
+                          className={`flex py-2 hover:border-l-2 hover:border-blue-100 hover:bg-[#307fc112] sidebar-link ${res?.name === mainType ? 'bg-[#307fc112] border-blue-100': ''}`}
                           onClick={() => {
                             setMainType(res?.name);
                             setDrop(false);
