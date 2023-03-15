@@ -115,7 +115,7 @@ function HomePage() {
       cell: (param) => {
         return (
           <button
-            className="bg-cgreen-100 py-2 px-3 text-white rounded min-w-[69px]"
+            className="bg-cgreen-100 py-2 px-3 text-sm text-white rounded min-w-[69px]"
             onClick={() => {
               setShowModal(true);
             }}
