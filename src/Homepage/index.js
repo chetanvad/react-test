@@ -362,9 +362,7 @@ function HomePage() {
                 </div>
               )}
               <Pagination />
-              {showModal && (
-                <DetailsDrawer handleCloseModel={handleCloseModel} />
-              )}
+                <DetailsDrawer handleCloseModel={handleCloseModel} showModal={showModal} />
             </div>
           </div>
         </section>
